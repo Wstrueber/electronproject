@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { ReactNode } from "react";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const { ipcRenderer, remote } = window.require("electron");
+
+class App extends Component<{}, {}> {
+  public componentDidMount() {
+    this.initMenu();
+  }
+  public render(): ReactNode {
+    return (
+      <div
+        className="App"
+        style={{ height: 200, width: 200, backgroundColor: "red" }}
+        onClick={this.showSettings}
+      />
+    );
+  }
+  private initMenu = () => {};
+  private showSettings = () => {
+    ipcRenderer.send("toggle-settings", "test");
+  };
 }
 
 export default App;
