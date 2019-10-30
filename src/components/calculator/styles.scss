@@ -1,0 +1,10 @@
+.calculator {
+  width: 70%;
+  height: 80%;
+  border: 1px solid red;
+  .calculatorContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+  }
+}

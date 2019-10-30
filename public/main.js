@@ -15,6 +15,8 @@ function createWindow() {
   const settingsWindowBounds = SettingsStore.get("settingsWindowBounds");
 
   mainWindow = new BrowserWindow({
+    minWidth: 800,
+    minHeight: 600,
     ...mainWindowBounds,
     webPreferences: {
       nodeIntegration: true
@@ -36,7 +38,6 @@ function createWindow() {
 
   mainWindow.on("resize", () => {
     const { width, height } = mainWindow.getBounds();
-
     MainStore.set("mainWindowBounds", { width, height });
   });
 

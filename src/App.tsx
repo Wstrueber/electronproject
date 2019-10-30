@@ -1,26 +1,16 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import { ReactNode } from "react";
-
-const { ipcRenderer, remote } = window.require("electron");
+import Calculator from "./components/calculator";
 
 class App extends Component<{}, {}> {
-  public componentDidMount() {
-    this.initMenu();
-  }
   public render(): ReactNode {
     return (
-      <div
-        className="App"
-        style={{ height: 200, width: 200, backgroundColor: "red" }}
-        onClick={this.showSettings}
-      />
+      <div className="app">
+        <Calculator />
+      </div>
     );
   }
-  private initMenu = () => {};
-  private showSettings = () => {
-    ipcRenderer.send("toggle-settings", "test");
-  };
 }
 
 export default App;
