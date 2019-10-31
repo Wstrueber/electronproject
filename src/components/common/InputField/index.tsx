@@ -1,25 +1,29 @@
-import React from "react";
-import { useInputField } from "../../../hooks";
+import React, { InputHTMLAttributes } from "react";
 
-interface IInputFieldProps {
+interface IInputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   inputLabel?: string;
+  inputClassname?: string;
   type: string;
-  defaultValue?: string;
 }
 
 const InputField = ({
   inputLabel,
+  inputClassname,
   type = "text",
-  defaultValue
+  defaultValue,
+  onChange,
+  value,
+  disabled
 }: IInputFieldProps) => {
-  const { value, reset, onChange } = useInputField("");
   return (
     <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
       <label style={{ alignSelf: "center" }} htmlFor={inputLabel}>
         {inputLabel}
       </label>
       <input
+        className={inputClassname}
         value={value || defaultValue}
+        disabled={disabled}
         onChange={onChange}
         style={{ textAlign: "center" }}
         type={type}

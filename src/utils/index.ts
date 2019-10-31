@@ -1,22 +1,30 @@
 import moment from "moment";
 const DEFAULT_PAY_DATE = 25;
 
-export const getPayDate = () => {
-  const todaysDate = moment().format("YYYY-MM-DD");
+export interface IPayDate {
+  payDate: string;
+  daysLeft: number;
+}
+
+export const getPayDate = (todaysDate: string): IPayDate => {
   let day = parseInt(moment(todaysDate).format("DD"));
+  const month = moment(todaysDate).set("date", 25);
+  let dayName = month.format("dddd");
 
+  let payDate = calenderPayDay(DEFAULT_PAY_DATE, dayName);
   let daysLeft = 0;
-  let payDate;
-  if (day < DEFAULT_PAY_DATE) {
-    const month = moment(todaysDate).set("date", 25);
-    const dayName = month.format("dddd");
 
-    daysLeft = calenderPayDay(DEFAULT_PAY_DATE, dayName) - day;
-
-    return daysLeft;
+  if (day < payDate) {
+    daysLeft = payDate - day;
+    return {
+      payDate: moment(todaysDate)
+        .set("date", payDate)
+        .format("YYYY-MM-DD"),
+      daysLeft
+    };
   }
-  // #TODO: fix condition as pay date could be on 24th or 26th
-  if (day > DEFAULT_PAY_DATE) {
+
+  if (day > payDate) {
     let endOfMonth = moment(todaysDate)
       .endOf("months")
       .format("DD");
@@ -25,14 +33,15 @@ export const getPayDate = () => {
 
     const nextMonth = moment(todaysDate)
       .add(1, "months")
-      .set("date", 25);
+      .set("date", DEFAULT_PAY_DATE);
 
-    const dayName = nextMonth.format("dddd");
+    dayName = nextMonth.format("dddd");
     day = parseInt(nextMonth.format("DD"));
 
-    daysLeft = calenderPayDay(day, dayName) + daysLeft;
+    payDate = calenderPayDay(day, dayName);
+    daysLeft = payDate + daysLeft;
 
-    return { payDate, daysLeft };
+    return { payDate: nextMonth.format("YYYY-MM-DD"), daysLeft };
   }
 
   return { payDate: todaysDate, daysLeft };

@@ -1,3 +1,3 @@
-import Settings from "./settings";
-
-export { Settings };
+import Settings from "./Settings";
+import Calculator from "./Calculator";
+export { Settings, Calculator };
