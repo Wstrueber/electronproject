@@ -216,7 +216,7 @@ const createMenu = locale => {
             focusedWindow.loadURL(
               isDev
                 ? // #TODO: Decide what root should display
-                  "http://localhost:3000/"
+                  "http://localhost:3000"
                 : `file://${path.join(__dirname, "../build/index.html")}`
             );
           }
@@ -227,8 +227,11 @@ const createMenu = locale => {
           click(_, focusedWindow) {
             focusedWindow.loadURL(
               isDev
-                ? "http://localhost:3000/conversion_calculator"
-                : `file://${path.join(__dirname, "../build/index.html")}`
+                ? "http://localhost:3000#conversion_calculator"
+                : `file://${path.join(
+                    __dirname,
+                    "../build/index.html#conversion_calculator"
+                  )}`
             );
           }
         }

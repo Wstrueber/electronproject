@@ -4,7 +4,7 @@ import PayCalculator from "./components/PayCalculator";
 import { changeLanguage } from ".";
 import { LocaleContext } from "./context";
 import { Switch, Route } from "react-router";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { ConversionCalculator } from "./components";
 
 const electron = window.require("electron");
@@ -29,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <div className="app">
           <div className="componentContainer">
@@ -42,7 +42,7 @@ const App = () => {
           </div>
         </div>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
