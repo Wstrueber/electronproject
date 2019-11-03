@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "SALARY": "Lön",
+    "CURRENT_BALANCE": "Aktuellt saldo",
+    "TODAYS_DATE": "Dagens datum",
+    "DAYS_LEFT": "dagar tills betaldagen!",
+    "PAY_DATE": "Betalningsdatum",
+    "TODAY_IS_PAY_DAY": "Idag är lönedag!",
+    "YOU_CAN_SPEND": "Du kan spendera",
+    "PER_DAY": "per dag",
+    "TEMPERATURE": "Temperatur",
+    "SHOW_FAHRENHEIT": "Visa fahrenheit",
+    "SHOW_CELSIUS": "Visa celsius"
+  }
+}

@@ -1,0 +1,32 @@
+.payDateWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  border: 1px solid #9da1ab;
+  border-radius: 8px;
+  width: 100%;
+  .payDateContainer {
+    min-height: 70px;
+    .payDateHeader {
+      font-size: 16px;
+      text-align: center;
+    }
+    .payDateDate {
+      font-size: 16px;
+      font-weight: bolder;
+      text-align: center;
+    }
+    .payDateDaysLeft {
+      font-size: 16px;
+      text-align: center;
+    }
+    .payDatePayPerDay {
+      margin: 10px 0;
+      font-size: 16px;
+      text-align: center;
+      span {
+        font-weight: bolder;
+      }
+    }
+  }
+}

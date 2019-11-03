@@ -1,0 +1,33 @@
+.calculatorContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  input.currentBalance {
+    outline: none;
+    border: 1px solid #9da1ab;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .react-datepicker__input-container {
+    display: block;
+    input.todaysDate {
+      cursor: pointer;
+      display: block;
+      border-width: 1px;
+      height: 30px;
+      font-size: 20px;
+      margin-bottom: 1px;
+      border: 1px solid #9da1ab;
+      border-radius: 8px;
+      text-align: center;
+      width: calc(100% - 3px);
+      color: transparent;
+      text-shadow: 0 0 0 black;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

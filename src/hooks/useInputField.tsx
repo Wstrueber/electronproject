@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from "react";
 
 export type IUseInputField = {
-  value: string;
+  value: string | undefined;
   reset: () => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };

@@ -1,4 +1,4 @@
 const MainStore = require("./main");
 const SettingsStore = require("./settings");
-
-module.exports = { MainStore, SettingsStore };
+const LanguageStore = require("./language");
+module.exports = { MainStore, SettingsStore, LanguageStore };

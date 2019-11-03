@@ -1,0 +1,15 @@
+{
+  "translation": {
+    "SALARY": "Salary",
+    "CURRENT_BALANCE": "Current balance",
+    "TODAYS_DATE": "Today's date",
+    "DAYS_LEFT": "days until pay day!",
+    "PAY_DATE": "Pay date",
+    "TODAY_IS_PAY_DAY": "Today is pay day!",
+    "YOU_CAN_SPEND": "You can spend",
+    "PER_DAY": "per day",
+    "TEMPERATURE": "Temperature",
+    "SHOW_FAHRENHEIT": "Show fahrenheit",
+    "SHOW_CELSIUS": "Show celsius"
+  }
+}

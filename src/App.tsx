@@ -1,16 +1,49 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.scss";
-import { ReactNode } from "react";
-import Calculator from "./components/Calculator";
+import PayCalculator from "./components/PayCalculator";
+import { changeLanguage } from ".";
+import { LocaleContext } from "./context";
+import { Switch, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import { ConversionCalculator } from "./components";
 
-class App extends Component<{}, {}> {
-  public render(): ReactNode {
-    return (
-      <div className="app">
-        <Calculator />
-      </div>
-    );
-  }
-}
+const electron = window.require("electron");
+const { ipcRenderer } = electron;
+
+type IData = {
+  locale: string;
+};
+
+const App = () => {
+  const context = useContext(LocaleContext);
+  useEffect(() => {
+    ipcRenderer.on("mainwindow-ready", (e: any, data: IData) => {
+      context.setContext({ ...context, context: { locale: data.locale } });
+      changeLanguage(data.locale);
+    });
+    ipcRenderer.on("toggle-language", (event: any, data: any) => {
+      ipcRenderer.send("toggle-language", { locale: data.locale });
+      context.setContext({ ...context, context: { locale: data.locale } });
+      changeLanguage(data.locale);
+    });
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <div className="app">
+          <div className="componentContainer">
+            <Route exact path="/" component={PayCalculator} />
+            <Route
+              exact
+              path="/conversion_calculator"
+              component={ConversionCalculator}
+            />
+          </div>
+        </div>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default App;

@@ -1,3 +1,4 @@
 import Settings from "./Settings";
-import Calculator from "./Calculator";
-export { Settings, Calculator };
+import PayCalculator from "./PayCalculator";
+import ConversionCalculator from "./ConversionCalculator";
+export { Settings, PayCalculator, ConversionCalculator };

@@ -13,23 +13,21 @@ const InputField = ({
   defaultValue,
   onChange,
   value,
+  autoFocus,
+  step,
   disabled
 }: IInputFieldProps) => {
   return (
-    <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-      <label style={{ alignSelf: "center" }} htmlFor={inputLabel}>
-        {inputLabel}
-      </label>
-      <input
-        className={inputClassname}
-        value={value || defaultValue}
-        disabled={disabled}
-        onChange={onChange}
-        style={{ textAlign: "center" }}
-        type={type}
-        id={inputLabel}
-      />
-    </div>
+    <input
+      className={inputClassname}
+      autoFocus={autoFocus}
+      step={step}
+      value={value || defaultValue}
+      disabled={disabled}
+      onChange={onChange}
+      type={type}
+      id={inputLabel}
+    />
   );
 };
 

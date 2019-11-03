@@ -4,4 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .componentContainer {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 300px;
+    border: 1px solid #9da1ab;
+    border-radius: 8px;
+    padding: 6px;
+  }
 }
