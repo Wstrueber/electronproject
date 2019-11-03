@@ -14,7 +14,6 @@ export const changeLanguage = (language: string) => {
     if (err) {
       return console.log("something went wrong loading", err);
     }
-    console.log(language);
   });
 };
 
